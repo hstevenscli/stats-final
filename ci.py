@@ -151,7 +151,7 @@ CATEGORIES = [
 "NCP",
 "CAEC",
 "SMOKE",
-# "CH2O",
+"CH2O",
 "SCC",
 # "FAF",
 # "TUE",
@@ -161,16 +161,21 @@ CATEGORIES = [
 
 CATMAP = {
         "family_history_with_overweight": "family_history_with_overweight",
-        "FAVC": "high calorie food frequently",
-        "FCVC": "eats vegetables",
-        "NCP": "how many meals",
-        "CAEC": "eat between meals",
-        "SMOKE": "smokes",
-        "SCC": "monitors calories",
-        "CALC": "how often drink alcohol"
+        "FAVC": "High calorie food frequently",
+        "FCVC": "Eats vegetables",
+        "NCP": "How many meals",
+        "CAEC": "Eat between meals",
+        "SMOKE": "Smokes",
+        "SCC": "Monitors calories",
+        "CALC": "How often drink alcohol",
+        "CH2O": "How much water",
+        "TUE": "Time using tech"
 }
 
+# Rounding out a lot of the values to have fewer categories when looking at confidence intervals
 df["NCP"] = df["NCP"].round()
+df["CH2O"] = df["CH2O"].round()
+df["TUE"] = df["TUE"].round()
 
 for category in CATEGORIES:
     print("===============CI for {}==============".format(category))
