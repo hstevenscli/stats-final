@@ -199,3 +199,18 @@ for category in CATEGORIES:
         else:
             pass
             # print(f"{value}: Not enough data for confidence interval.")
+
+fam_hist_df_yes = df[df['family_history_with_overweight'] == 'yes']
+fam_hist_df_no = df[df['family_history_with_overweight'] == 'no']
+
+mean_weights = {
+    'Yes': fam_hist_df_yes['Weight'].mean(),
+    'No': fam_hist_df_no['Weight'].mean()
+}
+
+# Creating a bar plot
+plt.bar(mean_weights.keys(), mean_weights.values(), color=['blue', 'orange'])
+plt.xlabel('Family History with Overweight')
+plt.ylabel('Mean Weight')
+plt.title('Mean Weight by Family History with Overweight')
+plt.show()
