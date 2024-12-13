@@ -181,11 +181,9 @@ for category in CATEGORIES:
     print("===============CI for {}==============".format(category))
     for value in df[category].unique():
         weight_category = df[df[category] == value]["Weight"]
-        
         if len(weight_category) > 1:  # Only calculate if more than one entry
             # Mean calculation
             actual_mean = np.mean(weight_category)
-            
             # Confidence interval calculation
             cinterval = stats.t.interval(
                 alpha=0.95,
